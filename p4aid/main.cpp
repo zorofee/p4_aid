@@ -9,11 +9,8 @@ using namespace std;
 
 
 
-void create_p4_command(char* command);
-void create_file_search_thread(char* command);
-
 void start_files_search(const char* path);
-
+void files_search_multi_thread(const char* path);
 
 int main(int argc, char *argv[])
 {
@@ -21,16 +18,18 @@ int main(int argc, char *argv[])
 	{
 		//µ÷ÓÃp4ÃüÁî
 		std::cout << "start p4 command\n";
-		start_files_search(argv[1]);
-
-
+		print_time();
+		//start_files_search(argv[1]);
+		files_search_multi_thread(argv[1]);
+		print_time();
 	}
 	else
 	{
-
 		std::cout << "no path input\n";
-		//string path = "F:/CPPWorks/p4aid/test/A";
-		//start_files_search((char *)path.c_str());
+		print_time();
+		string path = "C:\\Users\\56984\\Desktop\\p4\\UnrealEngine";
+		//files_search_multi_thread((char *)path.c_str());
+		print_time();
 	}
 	
 	return 0;
